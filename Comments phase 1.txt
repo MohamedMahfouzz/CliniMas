@@ -1,0 +1,15 @@
+SDS: 
+1) Sequence diagram naming
+2) Separate add form delete
+3) editing li eh fil section part fil awal
+4) mention section numbers in my document
+5) English check for document
+6) Readjust use cases and separate add stock, delete stock, remove stock
+7) Statistics is alone?!
+
+Test Cases:
+8) Test cases approach?!
+9) Testcase separate username and password
+10) COPY PASTE STUFF
+11) Sequesnce diagrams not in SDS
+12) Measurment of performance
