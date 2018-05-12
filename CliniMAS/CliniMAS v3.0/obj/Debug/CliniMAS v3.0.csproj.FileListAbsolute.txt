@@ -1,0 +1,11 @@
+D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v3.0\bin\Debug\CliniMAS v3.0.exe.config
+D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v3.0\bin\Debug\CliniMAS v3.0.exe
+D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v3.0\bin\Debug\CliniMAS v3.0.pdb
+D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v3.0\obj\Debug\CliniMAS_v3._0.SScreen.resources
+D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v3.0\obj\Debug\CliniMAS_v3._0.Properties.Resources.resources
+D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v3.0\obj\Debug\CliniMAS v3.0.csproj.GenerateResource.Cache
+D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v3.0\obj\Debug\CliniMAS v3.0.csproj.CoreCompileInputs.cache
+D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v3.0\obj\Debug\CliniMAS v3.0.exe
+D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v3.0\obj\Debug\CliniMAS v3.0.pdb
+D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v3.0\obj\Debug\CliniMAS_v3._0.userControlBase.resources
+D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v3.0\obj\Debug\CliniMAS v3.0.csprojResolveAssemblyReference.cache
