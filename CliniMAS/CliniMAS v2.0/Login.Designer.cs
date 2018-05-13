@@ -74,6 +74,7 @@
             this.Controls.Add(this.Login);
             this.Name = "SScreen";
             this.Text = "CliniMAS";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SScreen_FormClosing);
             this.Load += new System.EventHandler(this.SScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

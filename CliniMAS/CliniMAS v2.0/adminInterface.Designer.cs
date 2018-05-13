@@ -1,6 +1,6 @@
 ﻿namespace CliniMAS_v2._0
 {
-    partial class adminInterface
+    partial class doctorInterface
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminInterface));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(doctorInterface));
             this.back = new System.Windows.Forms.Button();
             this.action1 = new System.Windows.Forms.Button();
             this.action2 = new System.Windows.Forms.Button();
@@ -36,18 +36,19 @@
             this.userActionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.announcementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendToAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendToDoctorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.requetActionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acceptedRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.declinedRequestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.announcementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendToAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendToDoctorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountActionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editAccountSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewInterface = new System.Windows.Forms.DataGridView();
             this.messageBox = new System.Windows.Forms.TextBox();
+            this.sendingTo = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewInterface)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +73,7 @@
             this.action1.TabIndex = 5;
             this.action1.Text = "Action1";
             this.action1.UseVisualStyleBackColor = true;
+            this.action1.Click += new System.EventHandler(this.action1_Click);
             // 
             // action2
             // 
@@ -82,6 +84,7 @@
             this.action2.TabIndex = 6;
             this.action2.Text = "Action2";
             this.action2.UseVisualStyleBackColor = true;
+            this.action2.Click += new System.EventHandler(this.action2_Click);
             // 
             // menuStrip1
             // 
@@ -109,39 +112,16 @@
             // addUserToolStripMenuItem
             // 
             this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
-            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.addUserToolStripMenuItem.Text = "Add User";
             this.addUserToolStripMenuItem.Click += new System.EventHandler(this.addUserToolStripMenuItem_Click);
             // 
             // viewUsersToolStripMenuItem
             // 
             this.viewUsersToolStripMenuItem.Name = "viewUsersToolStripMenuItem";
-            this.viewUsersToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.viewUsersToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.viewUsersToolStripMenuItem.Text = "View Users";
             this.viewUsersToolStripMenuItem.Click += new System.EventHandler(this.viewUsersToolStripMenuItem_Click);
-            // 
-            // announcementsToolStripMenuItem
-            // 
-            this.announcementsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sendToAllToolStripMenuItem,
-            this.sendToDoctorsToolStripMenuItem});
-            this.announcementsToolStripMenuItem.Name = "announcementsToolStripMenuItem";
-            this.announcementsToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
-            this.announcementsToolStripMenuItem.Text = "Messaging";
-            // 
-            // sendToAllToolStripMenuItem
-            // 
-            this.sendToAllToolStripMenuItem.Name = "sendToAllToolStripMenuItem";
-            this.sendToAllToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
-            this.sendToAllToolStripMenuItem.Text = "Send to all";
-            this.sendToAllToolStripMenuItem.Click += new System.EventHandler(this.sendToAllToolStripMenuItem_Click);
-            // 
-            // sendToDoctorsToolStripMenuItem
-            // 
-            this.sendToDoctorsToolStripMenuItem.Name = "sendToDoctorsToolStripMenuItem";
-            this.sendToDoctorsToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
-            this.sendToDoctorsToolStripMenuItem.Text = "Send to Doctors";
-            this.sendToDoctorsToolStripMenuItem.Click += new System.EventHandler(this.sendToDoctorsToolStripMenuItem_Click);
             // 
             // requetActionsToolStripMenuItem
             // 
@@ -173,6 +153,29 @@
             this.declinedRequestsToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.declinedRequestsToolStripMenuItem.Text = "Declined Requests";
             this.declinedRequestsToolStripMenuItem.Click += new System.EventHandler(this.declinedRequestsToolStripMenuItem_Click);
+            // 
+            // announcementsToolStripMenuItem
+            // 
+            this.announcementsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sendToAllToolStripMenuItem,
+            this.sendToDoctorsToolStripMenuItem});
+            this.announcementsToolStripMenuItem.Name = "announcementsToolStripMenuItem";
+            this.announcementsToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            this.announcementsToolStripMenuItem.Text = "Messaging";
+            // 
+            // sendToAllToolStripMenuItem
+            // 
+            this.sendToAllToolStripMenuItem.Name = "sendToAllToolStripMenuItem";
+            this.sendToAllToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
+            this.sendToAllToolStripMenuItem.Text = "Send to all";
+            this.sendToAllToolStripMenuItem.Click += new System.EventHandler(this.sendToAllToolStripMenuItem_Click);
+            // 
+            // sendToDoctorsToolStripMenuItem
+            // 
+            this.sendToDoctorsToolStripMenuItem.Name = "sendToDoctorsToolStripMenuItem";
+            this.sendToDoctorsToolStripMenuItem.Size = new System.Drawing.Size(191, 26);
+            this.sendToDoctorsToolStripMenuItem.Text = "Send to Doctors";
+            this.sendToDoctorsToolStripMenuItem.Click += new System.EventHandler(this.sendToDoctorsToolStripMenuItem_Click);
             // 
             // accountActionsToolStripMenuItem
             // 
@@ -208,13 +211,23 @@
             // 
             // messageBox
             // 
-            this.messageBox.Location = new System.Drawing.Point(12, 42);
+            this.messageBox.Location = new System.Drawing.Point(12, 73);
             this.messageBox.MaxLength = 1000;
             this.messageBox.Multiline = true;
             this.messageBox.Name = "messageBox";
             this.messageBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.messageBox.Size = new System.Drawing.Size(856, 312);
             this.messageBox.TabIndex = 9;
+            // 
+            // sendingTo
+            // 
+            this.sendingTo.AutoSize = true;
+            this.sendingTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.sendingTo.Location = new System.Drawing.Point(12, 42);
+            this.sendingTo.Name = "sendingTo";
+            this.sendingTo.Size = new System.Drawing.Size(88, 20);
+            this.sendingTo.TabIndex = 10;
+            this.sendingTo.Text = "Sending to";
             // 
             // adminInterface
             // 
@@ -223,6 +236,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(880, 447);
+            this.Controls.Add(this.sendingTo);
             this.Controls.Add(this.messageBox);
             this.Controls.Add(this.viewInterface);
             this.Controls.Add(this.action2);
@@ -263,6 +277,7 @@
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.DataGridView viewInterface;
         private System.Windows.Forms.TextBox messageBox;
+        private System.Windows.Forms.Label sendingTo;
     }
 }
 

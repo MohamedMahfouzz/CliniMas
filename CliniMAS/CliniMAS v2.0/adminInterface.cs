@@ -4,15 +4,21 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CliniMAS_v2._0
 {
-    public partial class adminInterface : Form
+    public partial class doctorInterface : Form
     {
         SScreen login;
+
+        //Flags for value checking
+        private bool FNameF, MNameF, LNameF, GenF, SSNF, PnumberF, SalaryF, EmailF, PosF, TextF, ComboF;
+        List<bool> boolList;
+        
         //Lists of items
         TextBox FnameT, LnameT, MnameT, AddressT, SSNT, UNT, PWT, PhoneNumberT, SalaryT
             , QualificationsT, EmailT;
@@ -33,7 +39,7 @@ namespace CliniMAS_v2._0
 
         List<Button> Blist;
 
-        public adminInterface()
+        public doctorInterface()
         {
             InitializeComponent();
 
@@ -48,6 +54,7 @@ namespace CliniMAS_v2._0
             Clist = new List<ComboBox>();
             Llist = new List<Label>();
             Blist = new List<Button>();
+            boolList = new List<bool>();
 
             //List filling
             {
@@ -83,9 +90,21 @@ namespace CliniMAS_v2._0
                 Llist.Add(Genderl);
                 Llist.Add(Positionl);
                 Llist.Add(Emaill);
+                Llist.Add(sendingTo);
                 Blist.Add(back);
                 Blist.Add(action1);
                 Blist.Add(action2);
+                boolList.Add(FNameF);
+                boolList.Add(MNameF);
+                boolList.Add(LNameF);
+                boolList.Add(GenF);
+                boolList.Add(SSNF);
+                boolList.Add(PnumberF);
+                boolList.Add(SalaryF);
+                boolList.Add(EmailF);
+                boolList.Add(PosF);
+                boolList.Add(TextF);
+                boolList.Add(ComboF);
             }
 
             //Adding components to form in sequence
@@ -140,9 +159,14 @@ namespace CliniMAS_v2._0
                 }
                 viewInterface.Hide();
                 messageBox.Hide();
+                //Flags
+                for (int i = 0; i < boolList.Count(); i++)
+                {
+                    boolList[i] = false;
+                }
             }
 
-            //Component info //add sending to
+            //Component info
             {
                 //Comboboxes
                 GenderT.Items.AddRange(new object[] { "Male", "Female" });
@@ -344,9 +368,11 @@ namespace CliniMAS_v2._0
             {
                 Blist[i].Show();
             }
+            sendingTo.Show();
             messageBox.Show();
             action1.Text = "Reset";
             action2.Text = "Send Message";
+            sendingTo.Text = "Sending to All Employees";
         }
 
         private void sendToDoctorsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -357,15 +383,19 @@ namespace CliniMAS_v2._0
             {
                 Blist[i].Show();
             }
+            sendingTo.Show();
             messageBox.Show();
             action1.Text = "Reset";
             action2.Text = "Send Message";
+            sendingTo.Text = "Sending to Doctors";
         }
 
         private void editAccountSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.hideAll();
-
+            this.showAddUserItems();
+            this.action1.Text = "Reset Changes";
+            this.action2.Text = "Save Changes";
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -381,9 +411,114 @@ namespace CliniMAS_v2._0
             this.hideAll();
         }
 
+        private void action1_Click(object sender, EventArgs e)
+        {
+            switch (action1.Text)
+            {
+                case "Reset":
+                    //Reset the whole form
+                    this.reset();
+                    break;
+
+                case "Save Edits":
+                    //Check edits for acceptable values and save edits
+                    bool check = this.checkInputs();
+                    if (TextF == true || ComboF == true)
+                    {
+                        var mbox = MessageBox.Show("Please enter all data",
+                        "Empty Strings detected", MessageBoxButtons.OK
+                        , MessageBoxIcon.Warning);
+                    }
+                    if (check)
+                    {
+                        var mbox = MessageBox.Show("Please enter correct data",
+                        "illegal Strings detected", MessageBoxButtons.OK
+                        , MessageBoxIcon.Warning);
+                    }
+                    break;
+
+                case "Accept Request":
+                    //Accept selected request making value = 1 in database
+                    break;
+
+                case "Reset Changes":
+                    //Reset data in datagrid / textboxes to original value
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private void action2_Click(object sender, EventArgs e)
+        {
+            switch (action2.Text)
+            {
+                case "Add User":
+                    //Check input for acceptable values and add
+                    bool check = this.checkInputs();
+                    if (TextF == true || ComboF == true)
+                    {
+                        var mbox = MessageBox.Show("Please enter all data",
+                        "Empty Strings detected", MessageBoxButtons.OK
+                        , MessageBoxIcon.Warning);
+                    }
+                    if (check)
+                    {
+                        var mbox = MessageBox.Show("Please enter correct data",
+                        "illegal Strings detected", MessageBoxButtons.OK
+                        , MessageBoxIcon.Warning);
+                    }
+                    break;
+
+                case "Remove User":
+                    //remove user and all associated records from database
+                    break;
+
+                case "Decline Request":
+                    //decline request at hand, make value = -1 for request in database
+                    break;
+
+                case "Send Message":
+                    //Send message depending on label 
+                    if (sendingTo.Text == "Sending to All Employees")
+                    {
+                        //Send message to all Employees
+                    }
+                    else if (sendingTo.Text == "Sending to Doctors")
+                    {
+                        //Send only to Doctors
+                    }
+                    break;
+
+                case "Save Changes":
+                    //Check edits for acceptable values and save edits
+                    bool check2 = this.checkInputs();
+                    if (TextF == true || ComboF == true)
+                    {
+                        var mbox = MessageBox.Show("Please enter all data",
+                        "Empty Strings detected", MessageBoxButtons.OK
+                        , MessageBoxIcon.Warning);
+                    }
+                    if (check2)
+                    {
+                        var mbox = MessageBox.Show("Please enter correct data",
+                        "illegal Strings detected", MessageBoxButtons.OK
+                        , MessageBoxIcon.Warning);
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
         private void adminInterface_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Application.Exit();
+            this.hideAll();
+            login = new SScreen();
+            login.Show();
         }
 
         private void showAddUserItems()
@@ -404,7 +539,7 @@ namespace CliniMAS_v2._0
                 Clist[i].Show();
             }
             //Labels
-            for (int i = 0; i < Llist.Count; i++)
+            for (int i = 0; i < Llist.Count-1; i++)
             {
                 Llist[i].Show();
             }
@@ -455,6 +590,11 @@ namespace CliniMAS_v2._0
             {
                 Blist[i].Hide();
             }
+            //Flags
+            for (int i = 0; i < boolList.Count(); i++)
+            {
+                boolList[i] = false;
+            }
             action1.ResetText();
             action2.ResetText();
             viewInterface.Hide();
@@ -464,5 +604,107 @@ namespace CliniMAS_v2._0
             messageBox.ResetText();
 
         }
+
+        private void reset()
+        {
+            //Textboxes
+            for (int i = 0; i < Tlist.Count; i++)
+            {
+                Tlist[i].ResetText();
+            }
+            //Datepickers
+            for (int i = 0; i < Dlist.Count; i++)
+            {
+                Dlist[i].ResetText();
+            }
+            //Comboboxes
+            for (int i = 0; i < Clist.Count; i++)
+            {
+                Clist[i].ResetText();
+            }
+            viewInterface.DataSource = null;
+            viewInterface.Rows.Clear();
+            messageBox.ResetText();
+            //Flags
+            for (int i = 0; i < boolList.Count(); i++)
+            {
+                boolList[i] = false;
+            }
+        }
+
+        private bool checkInputs()
+        {
+            //Falsifies all inputs
+            for (int i = 0; i < boolList.Count(); i++)
+            {
+                boolList[i] = false;
+            }
+
+            //Check if all inputs have values
+            for (int i = 0; i < Tlist.Count(); i++)
+            {
+                if (string.IsNullOrWhiteSpace(Tlist[i].Text))
+                {
+                    TextF = true;
+                    break;
+                }
+            }
+            for (int i = 0; i < Clist.Count(); i++)
+            {
+                if (string.IsNullOrWhiteSpace(Clist[i].Text))
+                {
+                    ComboF = true;
+                    break;
+                }
+            }
+
+            //Checks certain inouts for valid values
+            if (FnameT.Text.Any(Char.IsDigit))
+                boolList[0] = true;
+            if (MnameT.Text.Any(Char.IsDigit))
+                boolList[1] = true;
+            if (LnameT.Text.Any(Char.IsDigit))
+                boolList[2] = true;
+            if (GenderT.Text != "Male" && GenderT.Text != "Female")
+                boolList[3] = true;
+            if (PositionT.Text != "Doctor" && PositionT.Text != "Nurse" && PositionT.Text != "Receptionist"
+                && PositionT.Text != "Worker" && PositionT.Text != "Intern")
+                boolList[8] = true;
+            if (SSNT.TextLength != 14 || SSNT.Text.Any(Char.IsLetter))
+                boolList[4] = true;
+            if (PhoneNumberT.TextLength != 11 || PhoneNumberT.Text.Any(Char.IsLetter))
+                boolList[5] = true;
+            if (int.TryParse(SalaryT.Text, out int n))
+            {
+                if (n < 0)
+                boolList[6] = true;
+            }
+            else
+                boolList[6] = true;
+            if (!IsValidEmail(EmailT.Text))
+                boolList[7] = true;
+
+            //Return true if any value is illegal
+            for (int i = 0; i < boolList.Count(); i++)
+            {
+                if (boolList[i] == true)
+                    return true;
+            }
+            return false;
+        }
+
+        private bool IsValidEmail(String email)
+        {
+            try
+            {
+                MailAddress mail = new MailAddress(email);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
     }
 }

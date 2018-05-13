@@ -8,4 +8,4 @@ D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\Clini
 D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v2.0\obj\Debug\CliniMAS v2.0.pdb
 D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v2.0\obj\Debug\CliniMAS v2.0.csprojResolveAssemblyReference.cache
 D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v2.0\obj\Debug\CliniMAS_v2._0.SScreen.resources
-D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v2.0\obj\Debug\CliniMAS_v2._0.adminInterface.resources
+D:\College\4-Senior 1\Semester 8\Software Engineering\Project\Git\CliniMas\CliniMAS\CliniMAS v2.0\obj\Debug\CliniMAS_v2._0.doctorInterface.resources

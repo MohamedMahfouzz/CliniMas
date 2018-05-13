@@ -12,7 +12,7 @@ namespace CliniMAS_v2._0
 {
     public partial class SScreen : Form
     {
-        adminInterface Admin;
+        doctorInterface Admin;
         //nurseInterface Nurse;
         //doctorInterface Doctor;
         //receptionistInterface Receptionist;
@@ -126,7 +126,7 @@ namespace CliniMAS_v2._0
         private void Login_Click(object sender, EventArgs e)
         {
             //if credentials are correct, we need to show new window depending on Control level
-            Admin = new adminInterface();
+            Admin = new doctorInterface();
             Admin.Show();
             this.Hide();
             //Show main page if correct
@@ -136,6 +136,11 @@ namespace CliniMAS_v2._0
             //{
             //    MessageBox.Show("Wrong Username or Password!");
             //}
+        }
+
+        private void SScreen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
