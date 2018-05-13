@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D5EC5DD6-D6F8-4BE4-BF17-FC980E7D8136}</ProjectGuid>
+    <ProjectGuid>{8EBA8483-C4F9-4006-8394-779D825D776E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CliniMAS_v2._0</RootNamespace>
-    <AssemblyName>CliniMAS v2.0</AssemblyName>
+    <RootNamespace>CliniMAS_v4._0</RootNamespace>
+    <AssemblyName>CliniMAS_v4._0</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,50 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adminInterface.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="adminInterface.Designer.cs">
-      <DependentUpon>adminInterface.cs</DependentUpon>
-    </Compile>
-    <Compile Include="doctorxInterface.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="doctorxInterface.Designer.cs">
-      <DependentUpon>doctorxInterface.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="nurseInterface.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="nurseInterface.Designer.cs">
-      <DependentUpon>nurseInterface.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="receptionistInterface.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="receptionistInterface.Designer.cs">
-      <DependentUpon>receptionistInterface.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="adminInterface.resx">
-      <DependentUpon>adminInterface.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="doctorxInterface.resx">
-      <DependentUpon>doctorxInterface.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="nurseInterface.resx">
-      <DependentUpon>nurseInterface.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -98,9 +62,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="receptionistInterface.resx">
-      <DependentUpon>receptionistInterface.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,6 +1,6 @@
 ﻿namespace CliniMAS_v2._0
 {
-    partial class adminInterface
+    partial class doctorInterface
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminInterface));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(doctorInterface));
             this.back = new System.Windows.Forms.Button();
             this.action1 = new System.Windows.Forms.Button();
             this.action2 = new System.Windows.Forms.Button();

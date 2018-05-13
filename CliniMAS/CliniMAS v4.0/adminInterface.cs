@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CliniMAS_v2._0
 {
-    public partial class adminInterface : Form
+    public partial class doctorInterface : Form
     {
         SScreen login;
 
@@ -39,7 +39,7 @@ namespace CliniMAS_v2._0
 
         List<Button> Blist;
 
-        public adminInterface()
+        public doctorInterface()
         {
             InitializeComponent();
 

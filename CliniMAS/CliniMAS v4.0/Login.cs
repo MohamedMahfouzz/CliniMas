@@ -12,8 +12,7 @@ namespace CliniMAS_v2._0
 {
     public partial class SScreen : Form
     {
-        adminInterface Admin;
-        doctorxInterface Doctor;
+        doctorInterface Admin;
         //nurseInterface Nurse;
         //doctorInterface Doctor;
         //receptionistInterface Receptionist;
@@ -127,10 +126,8 @@ namespace CliniMAS_v2._0
         private void Login_Click(object sender, EventArgs e)
         {
             //if credentials are correct, we need to show new window depending on Control level
-            //Admin = new adminInterface();
-            Doctor = new doctorxInterface();
-            Doctor.Show();
-            //Admin.Show();
+            Admin = new doctorInterface();
+            Admin.Show();
             this.Hide();
             //Show main page if correct
             //Show admin page if admin

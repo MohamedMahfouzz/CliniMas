@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace CliniMAS_v2._0
 {
-    public partial class adminInterface : Form
+    public partial class doctorxInterface : Form
     {
         SScreen login;
 
         //Flags for value checking
         private bool FNameF, MNameF, LNameF, GenF, SSNF, PnumberF, SalaryF, EmailF, PosF, TextF, ComboF;
         List<bool> boolList;
-        
+
         //Lists of items
         TextBox FnameT, LnameT, MnameT, AddressT, SSNT, UNT, PWT, PhoneNumberT, SalaryT
             , QualificationsT, EmailT;
@@ -39,7 +39,7 @@ namespace CliniMAS_v2._0
 
         List<Button> Blist;
 
-        public adminInterface()
+        public doctorxInterface()
         {
             InitializeComponent();
 
@@ -55,6 +55,42 @@ namespace CliniMAS_v2._0
             Llist = new List<Label>();
             Blist = new List<Button>();
             boolList = new List<bool>();
+
+            //Component Initialiazation
+            {
+                FnameT = new TextBox();
+                LnameT = new TextBox();
+                MnameT = new TextBox();
+                AddressT = new TextBox();
+                PWT = new TextBox();
+                UNT = new TextBox();
+                SSNT = new TextBox();
+                PhoneNumberT = new TextBox();
+                SalaryT = new TextBox();
+                QualificationsT = new TextBox();
+                EmailT = new TextBox();
+                BDateT = new DateTimePicker();
+                SDateT = new DateTimePicker();
+                EDateT = new DateTimePicker();
+                GenderT = new ComboBox();
+                PositionT = new ComboBox();
+                Fnamel = new Label();
+                Lnamel = new Label();
+                Mnamel = new Label();
+                Addressl = new Label();
+                PWl = new Label();
+                UNl = new Label();
+                SSNl = new Label();
+                PhoneNumberl = new Label();
+                Salaryl = new Label();
+                Qualificationsl = new Label();
+                BDatel = new Label();
+                SDatel = new Label();
+                EDatel = new Label();
+                Genderl = new Label();
+                Positionl = new Label();
+                Emaill = new Label();
+            }
 
             //List filling
             {
@@ -173,7 +209,7 @@ namespace CliniMAS_v2._0
                 PositionT.Items.AddRange(new object[] { "Doctor", "Nurse", "Receptionist",
                     "Worker", "Intern"});
                 //Sendtoc.Items.AddRange(new object[] { "Doctors", "Nurses", "Receptionists",
-                  //  "Everyone"});
+                //  "Everyone"});
 
                 //Labels
                 Fnamel.Text = "First name";
@@ -205,7 +241,7 @@ namespace CliniMAS_v2._0
                 QualificationsT.Size = new Size(150, 35);
 
                 PWT.UseSystemPasswordChar = true;
-                
+
                 for (int i = 0; i < Llist.Count; i++)
                 {
                     Llist[i].BackColor = System.Drawing.Color.Transparent;
@@ -213,7 +249,7 @@ namespace CliniMAS_v2._0
             }
         }
 
-        private void adminInterface_Load(object sender, EventArgs e)
+        private void doctorxInterface_Load(object sender, EventArgs e)
         {
             //Component specific properties
             {
@@ -279,58 +315,44 @@ namespace CliniMAS_v2._0
 
         }
 
-        private void adminInterface_Resize(object sender, EventArgs e)
+        private void doctorxInterface_Resize(object sender, EventArgs e)
         {
-            //Component Initialiazation
-            {
-                FnameT = new TextBox();
-                LnameT = new TextBox();
-                MnameT = new TextBox();
-                AddressT = new TextBox();
-                PWT = new TextBox();
-                UNT = new TextBox();
-                SSNT = new TextBox();
-                PhoneNumberT = new TextBox();
-                SalaryT = new TextBox();
-                QualificationsT = new TextBox();
-                EmailT = new TextBox();
-                BDateT = new DateTimePicker();
-                SDateT = new DateTimePicker();
-                EDateT = new DateTimePicker();
-                GenderT = new ComboBox();
-                PositionT = new ComboBox();
-                Fnamel = new Label();
-                Lnamel = new Label();
-                Mnamel = new Label();
-                Addressl = new Label();
-                PWl = new Label();
-                UNl = new Label();
-                SSNl = new Label();
-                PhoneNumberl = new Label();
-                Salaryl = new Label();
-                Qualificationsl = new Label();
-                BDatel = new Label();
-                SDatel = new Label();
-                EDatel = new Label();
-                Genderl = new Label();
-                Positionl = new Label();
-                Emaill = new Label();
-            }
-
             this.back.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
             this.action1.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
             this.action2.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
         }
 
-        private void addUserToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addDiagnosticToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.hideAll();
-            this.showAddUserItems();
-            this.action1.Text = "Reset";
-            this.action2.Text = "Add User";
+            //Buttons
+            for (int i = 0; i < Blist.Count; i++)
+            {
+                Blist[i].Show();
+            }
+            sendingTo.Show();
+            messageBox.Show();
+            action1.Text = "Reset";
+            action2.Text = "Add Diagnostic";
+            sendingTo.Text = "Diagnostic";
         }
 
-        private void viewUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addMedicationToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.hideAll();
+            //Buttons
+            for (int i = 0; i < Blist.Count; i++)
+            {
+                Blist[i].Show();
+            }
+            sendingTo.Show();
+            messageBox.Show();
+            action1.Text = "Reset";
+            action2.Text = "Add Medication";
+            sendingTo.Text = "Medication";
+        }
+
+        private void viewScheduleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.hideAll();
             this.showViewingInterface();
@@ -338,29 +360,37 @@ namespace CliniMAS_v2._0
             action2.Text = "Remove User";
         }
 
-        private void viewRequestsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void requestMaterialsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.hideAll();
-            this.showViewingInterface();
-            action1.Text = "Accept Request";
-            action2.Text = "Decline Request";
+            //Buttons
+            for (int i = 0; i < Blist.Count; i++)
+            {
+                Blist[i].Show();
+            }
+            sendingTo.Show();
+            messageBox.Show();
+            action1.Text = "Reset";
+            action2.Text = "Send Request";
+            sendingTo.Text = "Request Materials";
         }
 
-        private void acceptedRequestsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void requestEmployeesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.hideAll();
-            this.viewInterface.Show();
-            this.back.Show();
+            //Buttons
+            for (int i = 0; i < Blist.Count; i++)
+            {
+                Blist[i].Show();
+            }
+            sendingTo.Show();
+            messageBox.Show();
+            action1.Text = "Reset";
+            action2.Text = "Send Request";
+            sendingTo.Text = "Request Employees";
         }
 
-        private void declinedRequestsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.hideAll();
-            this.viewInterface.Show();
-            this.back.Show();
-        }
-
-        private void sendToAllToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sendToAllToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.hideAll();
             //Buttons
@@ -375,7 +405,7 @@ namespace CliniMAS_v2._0
             sendingTo.Text = "Sending to All Employees";
         }
 
-        private void sendToDoctorsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sendToNursesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.hideAll();
             //Buttons
@@ -387,10 +417,25 @@ namespace CliniMAS_v2._0
             messageBox.Show();
             action1.Text = "Reset";
             action2.Text = "Send Message";
-            sendingTo.Text = "Sending to Doctors";
+            sendingTo.Text = "Sending to Nurses";
         }
 
-        private void editAccountSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sendToReceptionistsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.hideAll();
+            //Buttons
+            for (int i = 0; i < Blist.Count; i++)
+            {
+                Blist[i].Show();
+            }
+            sendingTo.Show();
+            messageBox.Show();
+            action1.Text = "Reset";
+            action2.Text = "Send Message";
+            sendingTo.Text = "Sending to Receptionists";
+        }
+
+        private void editAccountSettingsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.hideAll();
             this.showAddUserItems();
@@ -398,7 +443,7 @@ namespace CliniMAS_v2._0
             this.action2.Text = "Save Changes";
         }
 
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void logOutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.hideAll();
             login = new SScreen();
@@ -413,107 +458,15 @@ namespace CliniMAS_v2._0
 
         private void action1_Click(object sender, EventArgs e)
         {
-            switch (action1.Text)
-            {
-                case "Reset":
-                    //Reset the whole form
-                    this.reset();
-                    break;
 
-                case "Save Edits":
-                    //Check edits for acceptable values and save edits
-                    bool check = this.checkInputs();
-                    if (TextF == true || ComboF == true)
-                    {
-                        var mbox = MessageBox.Show("Please enter all data",
-                        "Empty Strings detected", MessageBoxButtons.OK
-                        , MessageBoxIcon.Warning);
-                    }
-                    if (check)
-                    {
-                        var mbox = MessageBox.Show("Please enter correct data",
-                        "illegal Strings detected", MessageBoxButtons.OK
-                        , MessageBoxIcon.Warning);
-                    }
-                    break;
-
-                case "Accept Request":
-                    //Accept selected request making value = 1 in database
-                    break;
-
-                case "Reset Changes":
-                    //Reset data in datagrid / textboxes to original value
-                    break;
-
-                default:
-                    break;
-            }
         }
 
         private void action2_Click(object sender, EventArgs e)
         {
-            switch (action2.Text)
-            {
-                case "Add User":
-                    //Check input for acceptable values and add
-                    bool check = this.checkInputs();
-                    if (TextF == true || ComboF == true)
-                    {
-                        var mbox = MessageBox.Show("Please enter all data",
-                        "Empty Strings detected", MessageBoxButtons.OK
-                        , MessageBoxIcon.Warning);
-                    }
-                    if (check)
-                    {
-                        var mbox = MessageBox.Show("Please enter correct data",
-                        "illegal Strings detected", MessageBoxButtons.OK
-                        , MessageBoxIcon.Warning);
-                    }
-                    break;
 
-                case "Remove User":
-                    //remove user and all associated records from database
-                    break;
-
-                case "Decline Request":
-                    //decline request at hand, make value = -1 for request in database
-                    break;
-
-                case "Send Message":
-                    //Send message depending on label 
-                    if (sendingTo.Text == "Sending to All Employees")
-                    {
-                        //Send message to all Employees
-                    }
-                    else if (sendingTo.Text == "Sending to Doctors")
-                    {
-                        //Send only to Doctors
-                    }
-                    break;
-
-                case "Save Changes":
-                    //Check edits for acceptable values and save edits
-                    bool check2 = this.checkInputs();
-                    if (TextF == true || ComboF == true)
-                    {
-                        var mbox = MessageBox.Show("Please enter all data",
-                        "Empty Strings detected", MessageBoxButtons.OK
-                        , MessageBoxIcon.Warning);
-                    }
-                    if (check2)
-                    {
-                        var mbox = MessageBox.Show("Please enter correct data",
-                        "illegal Strings detected", MessageBoxButtons.OK
-                        , MessageBoxIcon.Warning);
-                    }
-                    break;
-
-                default:
-                    break;
-            }
         }
 
-        private void adminInterface_FormClosing(object sender, FormClosingEventArgs e)
+        private void doctorxInterface_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Application.Exit();
             this.hideAll();
@@ -539,7 +492,7 @@ namespace CliniMAS_v2._0
                 Clist[i].Show();
             }
             //Labels
-            for (int i = 0; i < Llist.Count-1; i++)
+            for (int i = 0; i < Llist.Count - 1; i++)
             {
                 Llist[i].Show();
             }
@@ -677,7 +630,7 @@ namespace CliniMAS_v2._0
             if (int.TryParse(SalaryT.Text, out int n))
             {
                 if (n < 0)
-                boolList[6] = true;
+                    boolList[6] = true;
             }
             else
                 boolList[6] = true;
